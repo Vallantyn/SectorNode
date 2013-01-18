@@ -1,0 +1,13 @@
+#canvas {
+    border: solid 1px #DDD;
+}
+
+body {
+    background: black;
+    color: #DDD;
+    text-align: center;
+}
+
+#FPS, #PING {
+    text-align: left;
+}

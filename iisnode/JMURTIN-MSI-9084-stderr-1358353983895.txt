@@ -1,0 +1,33 @@
+Error: Failed to lookup view "home.jade"
+    at Function.app.render (C:\SectorNode\node_modules\express\lib\application.js:492:17)
+    at ServerResponse.res.render (C:\SectorNode\node_modules\express\lib\response.js:721:7)
+    at C:\SectorNode\server.js:18:14
+    at callbacks (C:\SectorNode\node_modules\express\lib\router\index.js:161:37)
+    at param (C:\SectorNode\node_modules\express\lib\router\index.js:135:11)
+    at pass (C:\SectorNode\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (C:\SectorNode\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (C:\SectorNode\node_modules\express\lib\router\index.js:33:10)
+    at next (C:\SectorNode\node_modules\express\node_modules\connect\lib\proto.js:199:15)
+    at resume (C:\SectorNode\node_modules\express\node_modules\connect\lib\middleware\static.js:60:7)
+Error: Failed to lookup view "home.jade"
+    at Function.app.render (C:\SectorNode\node_modules\express\lib\application.js:492:17)
+    at ServerResponse.res.render (C:\SectorNode\node_modules\express\lib\response.js:721:7)
+    at C:\SectorNode\server.js:18:14
+    at callbacks (C:\SectorNode\node_modules\express\lib\router\index.js:161:37)
+    at param (C:\SectorNode\node_modules\express\lib\router\index.js:135:11)
+    at pass (C:\SectorNode\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (C:\SectorNode\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (C:\SectorNode\node_modules\express\lib\router\index.js:33:10)
+    at next (C:\SectorNode\node_modules\express\node_modules\connect\lib\proto.js:199:15)
+    at resume (C:\SectorNode\node_modules\express\node_modules\connect\lib\middleware\static.js:60:7)
+Error: Failed to lookup view "home.jade"
+    at Function.app.render (C:\SectorNode\node_modules\express\lib\application.js:492:17)
+    at ServerResponse.res.render (C:\SectorNode\node_modules\express\lib\response.js:721:7)
+    at C:\SectorNode\server.js:18:14
+    at callbacks (C:\SectorNode\node_modules\express\lib\router\index.js:161:37)
+    at param (C:\SectorNode\node_modules\express\lib\router\index.js:135:11)
+    at pass (C:\SectorNode\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (C:\SectorNode\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (C:\SectorNode\node_modules\express\lib\router\index.js:33:10)
+    at next (C:\SectorNode\node_modules\express\node_modules\connect\lib\proto.js:199:15)
+    at resume (C:\SectorNode\node_modules\express\node_modules\connect\lib\middleware\static.js:60:7)

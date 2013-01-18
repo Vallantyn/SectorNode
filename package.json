@@ -1,0 +1,17 @@
+{
+	"name": "Sector_Node",
+	"version": "0.9.2",
+	"author": "Julien Murtin",
+	"main": "Server",
+	"engines": {
+		"node": "0.8.12"
+	},
+	"scripts": {
+		"start": "Server.js"
+	},
+	"dependencies": {
+		"express": "*",
+		"jade": "*",
+		"socket.io": "*"
+	}
+}

@@ -8,7 +8,7 @@ var io = require('socket.io').listen(server);
 
 io.set('loglevel', 1);
 
-var port = process.env.port || 8042;
+var port = process.env.PORT;
 
 server.listen(port);
 

@@ -19,15 +19,14 @@ requirejs.config({
     }
 });
 
-require(['GameEngine', 'Screen', 'Asset.Scene/Sample'],
+require(['GameEngine', 'Screen', 'Asset.Scene/Sample', 'Asset.GameObject/Ship'],
 
-function (GameEngine, Screen, Scene)
+function (GameEngine, Screen, Scene, Ship)
 {
     Screen.Set('canvas');
 
     var Game =   new GameEngine(),
         scene =     new Scene();
-
 
     //#region com
     //var backBuffer = document.createElement('canvas');

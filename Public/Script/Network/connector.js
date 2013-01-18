@@ -2,7 +2,7 @@
 
 'use strict';
 
-var socket = io.connect('http://localhost:8042'),
+var socket = io.connect(),
     local/*, ping*/;
 
 function bleh(stack, data)

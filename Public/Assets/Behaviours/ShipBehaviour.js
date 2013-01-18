@@ -23,15 +23,6 @@ function (Time, Input, UI, Laser)
                 // Define the component as Active or not
                 active: true,
 
-                UI: function ()
-                {
-                    var position = this.gameObject.transform.position;
-                    var transform = this.gameObject.transform;
-
-                    if(!UI.Label('Vallantyn', position.Add({ x: 0, y: 50 })))
-                        transform.Rotate(-Math.PI * Time.deltaTime);
-                },
-
                 // Update the ShipBehaviour
                 Update: function ()
                 {

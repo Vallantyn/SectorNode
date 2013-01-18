@@ -4,9 +4,9 @@
 
 define('Asset.GameObject/PlayerDistant',
 
-['GameObject', 'Renderer', 'Asset.Model/PlayerDistantMesh', 'Asset.Material/PlayerDistantMaterial', 'Asset.Behaviour/PlayerDistantBehaviour'],
+['GameObject', 'Renderer', 'Asset.Model/ShipMesh', 'Asset.Material/PlayerDistantMaterial'],
 
-function (GameObject, Renderer, Mesh, Material, Behaviour)
+function (GameObject, Renderer, Mesh, Material)
 {
     /*
     PlayerDistant Class
@@ -17,11 +17,9 @@ function (GameObject, Renderer, Mesh, Material, Behaviour)
         // PRIVATE part of the class
         var PlayerDistant = new GameObject(),
             renderer = new Renderer(),
-            mesh = new Mesh(),
-            behaviour = new Behaviour();
+            mesh = new Mesh();
 
-        PlayerDistant.AddComponent(behaviour)
-            .SetComponent('mesh', mesh)
+        PlayerDistant.SetComponent('mesh', mesh)
             .SetComponent('renderer', renderer)
             .renderer.material = Material;
 

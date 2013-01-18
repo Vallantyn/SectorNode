@@ -18,7 +18,9 @@ app.set('views',__dirname + '/Views');
 app.get('/', function (request, response)
 {
     response.render('Main.jade');
-
 });
 
+console.log('App started dood');
+
+require('./Public/Script/Network/Main.js').init(io);
 //require('./game.js').init(io);

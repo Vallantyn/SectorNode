@@ -13,9 +13,13 @@ function (/*Dependency*/)
     PlayerDistant Description
     */
     return {
-        'strokeStyle': '#08F',
-        'fillStyle': '#000',
-        'lineWidth': 2,
+        'strokeStyle': '#666',
+        'fillStyle': '#0F8',
+        //'shadowColor':      '#FFF',
+        //'shadowBlur':       '20',
+        //'shadowOffsetX':    '0',
+        //'shadowOffsetY':    '0',
+        //'lineWidth':        '2',
         'lineCap': 'round',
         'lineJoin': 'round'
     };

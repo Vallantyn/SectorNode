@@ -13,7 +13,7 @@ function (Scene, Screen, UI, Ship, Ally, StarField)
         var scene = new Scene(),
         starfield = new StarField();
 
-        var users = [];
+        var users = {};
 
         scene.AddObject(starfield);
 
@@ -34,7 +34,7 @@ function (Scene, Screen, UI, Ship, Ally, StarField)
             }
             else localStorage.setItem('sectornode.user', getUser());
 
-            socket.emit('user', { user: localStorage.getItem('sectornode.user') }, function ()
+            socket.emit('user', { user: localStorage.getItem('sectornode.user') }, function (name)
             {
                 var ship = new Ship();
                 ship.transform.Translate({ x: Screen.bounds.width * Math.random(), y: Screen.bounds.height * Math.random() });
@@ -43,7 +43,7 @@ function (Scene, Screen, UI, Ship, Ally, StarField)
                     active: true,
                     UI: function ()
                     {
-                        UI.Label(localStorage.getItem('sectornode.user'), ship.transform.position.Add({ x: 0, y: 50 }));
+                        UI.Label(name, ship.transform.position.Add({ x: 0, y: 50 }));
                     }
                 }
 
@@ -55,20 +55,33 @@ function (Scene, Screen, UI, Ship, Ally, StarField)
             });
         });
 
-        socket.on('distant connect', function ()
+        socket.on('distant connect', function (name)
         {
+            console.log(name);
+
             var ship = new Ally();
             ship.transform.Translate({ x: Screen.bounds.width * Math.random(), y: Screen.bounds.height * Math.random() });
+
+            var label = {
+                active: true,
+                UI: function ()
+                {
+                    UI.Label(name.name, ship.transform.position.Add({ x: 0, y: 50 }));
+                }
+            }
+
+            ship.AddComponent(label);
+
             scene.AddObject(ship);
 
-            users.push(ship);
+            users[name.name] = ship;
         });
 
 
-        socket.on('user disconnect', function ()
+        socket.on('user disconnect', function (user)
         {
-            scene.RemoveObject(users[users.length - 1]);
-            users.pop();
+            scene.RemoveObject(users[user.name]);
+            delete users[user.name];
         });
 
         return scene;

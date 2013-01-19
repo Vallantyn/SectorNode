@@ -1,6 +1,6 @@
 'use strict';
 
-var users = 0;
+var users = [];
 
 function logError(error)
 {
@@ -93,6 +93,25 @@ userScheme.post('remove', function (usr)
 
 var User = mongoose.model('User', userScheme);
 
+function spread(socket, name)
+{
+    socket.broadcast.emit('distant connect', { name: name });
+
+    for (var i = 0; i < users.length; i++)
+    {
+        socket.emit('distant connect', { name: users[i] });
+    }
+
+    users.push(name);
+
+    socket.on('disconnect', function ()
+    {
+        socket.broadcast.emit('user disconnect', { name: name });
+
+        users.splice(users.indexOf(name), 1);
+    });
+}
+
 exports.init = function (io)
 {
     io.sockets.on('connection', function (socket)
@@ -100,14 +119,7 @@ exports.init = function (io)
 
         Debug.log('<Server> -#magenta[#bold[Incoming Connexion]]-');
 
-        socket.broadcast.emit('distant connect');
-
-        for (var i = 0; i < users; i++)
-        {
-            socket.emit('distant connect');
-        }
-
-        socket.on('user', function (data, fn)
+        socket.on('user', function (data, clientCallback)
         {
             if (db) db.close();
 
@@ -115,7 +127,7 @@ exports.init = function (io)
 
             db.once('open', function ()
             {
-                function callback(err, result)
+                function signIn(err, result)
                 {
                     if (err) logError(err);
 
@@ -125,20 +137,22 @@ exports.init = function (io)
                         {
                             if (err) logError(err);
 
-                            db.close();
+                            if (clientCallback) clientCallback(result.name);
+                            spread(socket, result.name);
 
-                            if (fn) fn();
+                            db.close();
                         });
                     }
                     else
                     {
-                        user.save(function (err, blb)
+                        user.save(function (err)
                         {
                             if (err) logError(err);
 
-                            db.close();
+                            if (clientCallback) clientCallback(user.name);
+                            spread(socket, user.name);
 
-                            if (fn) fn();
+                            db.close();
                         });
                     }
                 };
@@ -148,18 +162,8 @@ exports.init = function (io)
 
                 User.findOne(null)
                          .where('name', user.name)
-                         .exec(callback);
+                         .exec(signIn);
             });
         });
-
-        socket.on('disconnect', function (d)
-        {
-            socket.broadcast.emit('user disconnect');
-
-            users--;
-            console.log(d);
-        });
-
-        users++;
     });
 };

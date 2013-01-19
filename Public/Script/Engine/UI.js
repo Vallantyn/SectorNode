@@ -20,7 +20,7 @@ function (Screen, Input)
             var cx = Screen.context,
                 x = anchor.x - cx.measureText(string).width / 2,
                 y = anchor.y + 7;
-
+            /*
             //if (Input.GetMouse(0))
             //{
             var _x = Input.Mouse.x,
@@ -32,13 +32,13 @@ function (Screen, Input)
                 _x < x ||
                 _y < y - height ||
                 _y > y)
-            {
+            {*/
 
                 cx.fillStyle = 'white';
                 cx.font = '14px sans-serif';
 
                 cx.fillText(string, x, y);
-
+            /*
                 return false;
             }
             else
@@ -49,7 +49,7 @@ function (Screen, Input)
                 cx.fillText(string, x, y);
 
                 return true;
-            }
+            }*/
         }
     };
 });

@@ -1,3 +1,4 @@
 /.env
 /Doc
 /node_modules
+.DS_STORE

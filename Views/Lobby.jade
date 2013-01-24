@@ -3,9 +3,10 @@ html
 	head
 		title ..:: Sector : Node ::..
 		link(type="text/css", rel="stylesheet", href="Css/main.css")
-		
 		script(type="text/javascript", src="/socket.io/socket.io.js")
-		script(data-main="/Script/Client.js", src="/Script/Libs/require.js")
 	body
-		h1 ..:: Sector : Node ::..
-	canvas#canvas(width=1600, height=800)
+		#login-container
+			.window
+				h1 ..:: Sector : Node ::..
+			.window User
+			.window Connected Players

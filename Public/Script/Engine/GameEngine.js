@@ -115,6 +115,12 @@ function (Screen, Time, Input)
             scene.RemoveObject(object);
         };
 
+        // Global method used to easily destroy GameObjects
+        window.ChangeScene = function (/*GameObject*/ scene)
+        {
+            that.ChangeScene(scene);
+        };
+
         return that;        // Then return it !
     };
 });
